@@ -21,7 +21,21 @@ weatherform.addEventListener('submit',(e)=>{
     messageone.textContent='Loading...'
     messagetwo.textContent=''
     
-fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+// fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+//     response .json().then((data)=>{
+//         if(data.error)
+//         {
+//             messageone.textContent=data.error
+//         }
+//         else{
+//             messageone.textContent=data.location
+//             messagetwo.textContent=data.forecast
+//         }
+//     })
+// })
+
+//for heroku
+fetch('/weather?address='+location).then((response)=>{
     response .json().then((data)=>{
         if(data.error)
         {
@@ -33,4 +47,5 @@ fetch('http://localhost:3000/weather?address='+location).then((response)=>{
         }
     })
 })
+
 })
